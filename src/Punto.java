@@ -6,8 +6,11 @@ public class Punto {
         this.setY(y);
     }
     public Punto(){
-        this.x = 0;
-        this.y = 0;
+        this(0,0);
+    }
+    public Punto(int xy){
+        this(xy,xy);
+
     }
     public int getX(){
         return this.x;
