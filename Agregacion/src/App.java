@@ -1,27 +1,21 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        Libro libro1 = new Libro("cien años de soledad","Gabriel garcia marquez");
-        Libro libro2 = new Libro("El princito","Antonio de sain");
+        // Los libros se crean FUERA de la biblioteca - agregación
+        Libro libro1 = new Libro("Cien años de soledad", "Gabriel García Márquez");
+        Libro libro2 = new Libro("El amor en los tiempos del cólera", "Gabriel García Márquez");
+        Libro libro3 = new Libro("El principito", "Antoine de Saint-Exupéry");
 
-        Lector lector1 = new Lector("Ana Torres","1001234567");
-        Lector lector2 = new Lector("Carlos Ruiz", "1009876543");
-
-        lector1.tomarPrestado(libro1);
-        lector2.tomarPrestado(libro2);
-
-        System.out.println();
-        lector1.mostrarEstado();
-        lector2.mostrarEstado();
+        // Se crea la biblioteca y se le agregan los libros
+        Biblioteca biblioteca = new Biblioteca("Biblioteca Luis Ángel Arango");
+        biblioteca.agregarLibro(libro1);
+        biblioteca.agregarLibro(libro2);
+        biblioteca.agregarLibro(libro3);
 
         System.out.println();
-        lector1.tomarPrestado(libro2);
+        biblioteca.mostrarCatalogo();
 
+        biblioteca.buscarPorAutor("Gabriel García Márquez");
         System.out.println();
-        lector1.regresarLibro();
-        lector1.tomarPrestado(libro2);
-
-        System.out.println();
-        lector1.mostrarEstado();
-        lector2.mostrarEstado();
+        biblioteca.buscarPorAutor("Jorge Luis Borges");
     }
 }
